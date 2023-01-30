@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import './components/ImageSubmit'
+import ImageSubmit from './components/ImageSubmit';
+import MnistService from './services/mnistService'
+import { useState } from 'react'
+import { Container } from '@mui/material'
 
 function App() {
+
+  const [selectedImages, setSelectedImages] = useState(null)
+
+  const textStyle = {
+    fontFamily: 'Crimson Text',
+    marginBottom: '0px',
+    marginTop: '60px',
+    fontSize: '10vw'
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container maxWidth="sm">
+        <h1 style={textStyle}>Clothing Identifier</h1>
+        <ImageSubmit selectedImages={selectedImages} setSelectedImages={setSelectedImages}/>
+      </Container>
     </div>
   );
 }
